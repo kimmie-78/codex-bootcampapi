@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootcamp APIs</title>
+    <link rel="stylesheet" href="/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="alpine.js"></script>
+</head>
+<body>
+    <div x-data="{ tab: 'wordGame' }">
+        <!-- Navigation Tabs -->
+        <nav class="tabs">
+            <button :class="{ 'active': tab === 'wordGame' }" @click="tab = 'wordGame'">Word Game</button>
+            <button :class="{ 'active': tab === 'phoneBill' }" @click="tab = 'phoneBill'">Phone Bill</button>
+            <button :class="{ 'active': tab === 'enoughAirtime' }" @click="tab = 'enoughAirtime'">Airtime</button>
+        </nav>
+
+        <!-- Word Game Widget -->
+        <div x-show="tab === 'wordGame'" class="widget word-game" x-data="wordGame">
+            <h1>Word Game</h1>
+            <input x-model="sentence" placeholder="Enter a sentence">
+            <button @click="analyzeSentence()">Analyze</button>
+            <p>Longest Word Length: <span x-text="longestWord"></span></p>
+            <p>Shortest Word: <span x-text="shortestWord"></span></p>
+            <p>Sum of Word Lengths: <span x-text="sum"></span></p>
+        </div>
+
+        <!-- Phone Bill Widget -->
+        <div x-show="tab === 'phoneBill'" class="widget phone-bill" x-data="phoneBill">
+            <h1>Phone Bill</h1>
+            <input x-model="billString" placeholder="Enter bill string">
+            <button @click="fetchTotalBill()">Calculate</button>
+            <p>Total Cost: <span x-text="totalCost"></span></p>
+            <div>
+                <label>Call Price:</label>
+                <input type="number" x-model="callPrice">
+                <button @click="updatePrices('call', callPrice)">Set Call Price</button>
+            </div>
+            <div>
+                <label>SMS Price:</label>
+                <input type="number" x-model="smsPrice">
+                <button @click="updatePrices('sms', smsPrice)">Set SMS Price</button>
+            </div>
+        </div>
+
+        <!-- Airtime Widget -->
+        <div x-show="tab === 'enoughAirtime'" class="widget airtime" x-data="enoughAirtime">
+            <h1>Airtime</h1>
+            <input x-model="usage" placeholder="Enter usage string">
+            <input x-model="available" placeholder="Enter available airtime">
+            <button @click="checkAirtime()">Check Airtime</button>
+            <p>Remaining Airtime: <span x-text="remaining"></span></p>
+        </div>
+    </div>
+</body>
+</html>

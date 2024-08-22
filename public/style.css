@@ -1,0 +1,63 @@
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 20px;
+}
+
+.tabs {
+    display: flex;
+    justify-content: center; /* Centers the tabs horizontally */
+    gap: 20px; /* Adds spacing between the tabs */
+    margin-bottom: 20px;
+}
+
+.tabs button {
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border-radius: 5px;
+    background-color: #e0e0e0;
+}
+
+.tabs button.active {
+    font-weight: bold;
+    border-bottom: 2px solid #333;
+    background-color: #d0d0d0;
+}
+
+/* Specific styles for each tab */
+.word-game {
+    border: 2px solid #ffcccb; /* Soft pink outline */
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #ffe6e6;
+}
+
+.phone-bill {
+    border: 2px solid #9370db; /* Purple hue */
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #f5f5ff;
+}
+
+.airtime {
+    border: 2px solid #ffa07a; /* Soft orange */
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #fff0e6;
+}
+
+button {
+    background-color: #333;
+    color: white;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #555;
+}

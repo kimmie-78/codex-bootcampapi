@@ -1,0 +1,31 @@
+### Test Word Game API
+GET http://localhost:3000/api/word_game?sentence=The quick brown fox jumps
+
+### Test Total Phone Bill API - Total Calculation
+POST http://localhost:3000/api/phonebill/total
+Content-Type: application/json
+
+{
+  "bill": "call,sms,call"
+}
+
+### Test Total Phone Bill API - Get Prices
+GET http://localhost:3000/api/phonebill/prices
+
+### Test Total Phone Bill API - Set Prices
+POST http://localhost:3000/api/phonebill/price
+Content-Type: application/json
+
+{
+  "type": "sms",
+  "price": 2.85
+}
+
+### Test Enough Airtime API
+POST http://localhost:3000/api/enough
+Content-Type: application/json
+
+{
+  "usage": "call,sms,call",
+  "available": 54
+}
